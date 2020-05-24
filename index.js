@@ -13,7 +13,7 @@ app.listen(PORT, () => {
 
 app.use(express.static(path.resolve(__dirname, './client/build')))
 
-app.use(json, morgan, helmet, cors)
+app.use(json, morgan, helmet)
 
 app.use('/api', apiRouter)
 
