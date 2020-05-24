@@ -1,21 +1,23 @@
 const { PORT } = require('./env'),
-  app = require('express')(),
-  json = require('express').json(),
-  morgan = require('morgan')('dev'),
-  helmet = require('helmet')(),
-  cors = require('cors')(),
-  apiRouter = require('./routes/api')
+  express = require('express'),
+  path = require('path')
+;(app = express()),
+  (json = require('express').json()),
+  (morgan = require('morgan')('dev')),
+  (helmet = require('helmet')()),
+  (cors = require('cors')()),
+  (apiRouter = require('./routes/api'))
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`)
 })
 
+app.use(express.static(path.resolve(__dirname, '../client/build')))
+
 app.use(json, morgan, helmet, cors)
 
 app.use('/api', apiRouter)
 
-app.use((req, res, next) =>
-  res
-    .status(404)
-    .send('Invalid URL, please send check the list of endpoints to the API')
-)
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build/index.html'))
+})
