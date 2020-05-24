@@ -12,12 +12,12 @@ app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`)
 })
 
-app.use(express.static(path.resolve(__dirname, '../client/build')))
+app.use(express.static(path.resolve(__dirname, './client/build')))
 
 app.use(json, morgan, helmet, cors)
 
 app.use('/api', apiRouter)
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build/index.html'))
+  res.sendFile(path.resolve(__dirname, './client/build/index.html'))
 })
