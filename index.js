@@ -4,16 +4,15 @@ const { PORT } = require('./env'),
   morgan = require('morgan')('dev'),
   helmet = require('helmet')(),
   cors = require('cors')()
-
-const apiRouter = require('./routes/api')
+// apiRouter = require('./routes/api')
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`)
 })
 
-app.use(json, morgan, helmet, cors, session(sessionConfig))
+app.use(json, morgan, helmet, cors)
 
-app.use('/api', apiRouter)
+// app.use('/api', apiRouter)
 
 app.use((req, res, next) =>
   res
