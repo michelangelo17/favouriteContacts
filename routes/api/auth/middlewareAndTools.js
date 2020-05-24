@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs'),
   jwt = require('jsonwebtoken'),
   { JWT_SECRET } = require('../../../env'),
-  db = require('../../../data/dbConfig')
+  { findUser } = require('./dbQueries')
 
 const valBody = (req, res, next) => {
   if (!req.body.username && !req.body.password)
@@ -12,12 +12,13 @@ const valBody = (req, res, next) => {
 }
 
 const validatePassword = async (req, res, next) => {
-  const user = await db('users').where('username', req.body.username).first()
-  console.log(user)
+  const user = await findUser(req.body.username)
   if (!user || !bcrypt.compareSync(req.body.password, user.password))
-    return res
-      .status(401)
-      .json({ message: 'Authorization failed!', token: false })
+    return res.status(401).json({
+      message:
+        'Please check your username and password and try again. Or you can create an account!',
+      token: false,
+    })
   req.body.user = {
     subject: user.id,
     username: user.username,

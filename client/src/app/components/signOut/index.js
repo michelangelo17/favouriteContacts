@@ -7,7 +7,7 @@ import {
 
 const SignOut = () => {
   return (
-    <EmoLink to='/'>
+    <EmoLink to='/signedout'>
       <FlexContainer
         brandColor
         p='15px'

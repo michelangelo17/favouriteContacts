@@ -17,6 +17,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-spinners": "^0.8.3",
     "styled-map": "^3.3.0",
     "webfontloader": "^1.6.28",
     "yup": "^0.29.0"

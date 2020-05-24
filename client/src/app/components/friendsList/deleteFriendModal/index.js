@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom'
 import { Button, P } from '../../../../emotionalThings/EmoTools'
 import { EmoModalDiv } from './EmoDeleteFriend'
 import { useDispatch } from 'react-redux'
-import { deleteFriend, setIsLoading } from '../../../../redux/slices'
+import { deleteFriend } from '../../../../redux/thunks'
 
 const DeleteFriendModal = ({ visible, close, id }) => {
   const idNum = id.delete
   const dispatch = useDispatch()
   const handleDelete = () => {
-    dispatch(setIsLoading(true))
     dispatch(deleteFriend(idNum))
     close('delete', false)
   }
@@ -34,7 +33,7 @@ const DeleteFriendModal = ({ visible, close, id }) => {
             h='40px'
             br='15px'
             p='0 10px'
-            onClick={e => close('delete', false)}
+            onClick={(e) => close('delete', false)}
           >
             Cancel
           </Button>

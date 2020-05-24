@@ -106,125 +106,128 @@ export const FlexContainer = styled.div`
   align-items: ${alignItemsMap};
   align-content: ${alignContentMap};
   flex-wrap: ${flexWrapMap};
-  width: ${props => props.w};
-  height: ${props => props.h};
-  margin: ${props => props.m};
-  padding: ${props => props.p};
-  min-width: ${props => props.minw};
-  max-width: ${props => props.maxw};
-  min-height: ${props => props.minh};
-  max-height: ${props => props.maxh};
+  width: ${(props) => props.w};
+  height: ${(props) => props.h};
+  margin: ${(props) => props.m};
+  padding: ${(props) => props.p};
+  min-width: ${(props) => props.minw};
+  max-width: ${(props) => props.maxw};
+  min-height: ${(props) => props.minh};
+  max-height: ${(props) => props.maxh};
   background-color: ${bgColorMap};
-  border-radius: ${props => props.br};
+  border-radius: ${(props) => props.br};
   box-shadow: ${boxShadowMap};
-  position: ${props => props.position};
-  top: ${props => props.top};
-  right: ${props => props.right};
-  bottom: ${props => props.bottom};
-  left: ${props => props.left};
+  position: ${(props) => props.position};
+  top: ${(props) => props.top};
+  right: ${(props) => props.right};
+  bottom: ${(props) => props.bottom};
+  left: ${(props) => props.left};
 `
 
 export const BasicImg = styled.img`
-  width: ${props => props.w};
-  height: ${props => props.h};
-  margin: ${props => props.m};
-  padding: ${props => props.p};
-  min-width: ${props => props.minw};
-  max-width: ${props => props.maxw};
-  min-height: ${props => props.minh};
-  max-height: ${props => props.maxh};
-  border-radius: ${props => props.br};
+  width: ${(props) => props.w};
+  height: ${(props) => props.h};
+  margin: ${(props) => props.m};
+  padding: ${(props) => props.p};
+  min-width: ${(props) => props.minw};
+  max-width: ${(props) => props.maxw};
+  min-height: ${(props) => props.minh};
+  max-height: ${(props) => props.maxh};
+  border-radius: ${(props) => props.br};
 `
 
 export const H1 = styled.h1`
-  width: ${props => props.w};
-  height: ${props => props.h};
-  margin: ${props => props.m};
-  padding: ${props => props.p};
-  min-width: ${props => props.minw};
-  max-width: ${props => props.maxw};
-  min-height: ${props => props.minh};
-  max-height: ${props => props.maxh};
+  width: ${(props) => props.w};
+  height: ${(props) => props.h};
+  margin: ${(props) => props.m};
+  padding: ${(props) => props.p};
+  min-width: ${(props) => props.minw};
+  max-width: ${(props) => props.maxw};
+  min-height: ${(props) => props.minh};
+  max-height: ${(props) => props.maxh};
   font-size: ${styleVariables.fontSizeH1};
   color: ${colorMap};
   font-family: ${styleVariables.mainFontFamily};
   font-weight: bold;
-  text-align: ${props => props.ta};
+  text-align: ${(props) => props.ta};
+  @media (max-width: 600px) {
+    margin: ${(props) => props.mobm};
+  }
 `
 export const H2 = styled.h2`
-  width: ${props => props.w};
-  height: ${props => props.h};
-  margin: ${props => props.m};
-  padding: ${props => props.p};
-  min-width: ${props => props.minw};
-  max-width: ${props => props.maxw};
-  min-height: ${props => props.minh};
-  max-height: ${props => props.maxh};
+  width: ${(props) => props.w};
+  height: ${(props) => props.h};
+  margin: ${(props) => props.m};
+  padding: ${(props) => props.p};
+  min-width: ${(props) => props.minw};
+  max-width: ${(props) => props.maxw};
+  min-height: ${(props) => props.minh};
+  max-height: ${(props) => props.maxh};
   font-size: ${styleVariables.fontSizeH2};
   color: ${colorMap};
   font-family: ${styleVariables.mainFontFamily};
   font-weight: bold;
-  text-align: ${props => props.ta};
+  text-align: ${(props) => props.ta};
 `
 export const H3 = styled.h3`
-  width: ${props => props.w};
-  height: ${props => props.h};
-  margin: ${props => props.m};
-  padding: ${props => props.p};
-  min-width: ${props => props.minw};
-  max-width: ${props => props.maxw};
-  min-height: ${props => props.minh};
-  max-height: ${props => props.maxh};
+  width: ${(props) => props.w};
+  height: ${(props) => props.h};
+  margin: ${(props) => props.m};
+  padding: ${(props) => props.p};
+  min-width: ${(props) => props.minw};
+  max-width: ${(props) => props.maxw};
+  min-height: ${(props) => props.minh};
+  max-height: ${(props) => props.maxh};
   font-size: ${styleVariables.fontSizeH3};
   color: ${colorMap};
   font-family: ${styleVariables.mainFontFamily};
   font-weight: bold;
-  text-align: ${props => props.ta};
+  text-align: ${(props) => props.ta};
 `
 
 export const P = styled.p`
-  width: ${props => props.w};
-  height: ${props => props.h};
-  margin: ${props => props.m};
-  padding: ${props => props.p};
-  min-width: ${props => props.minw};
-  max-width: ${props => props.maxw};
-  min-height: ${props => props.minh};
-  max-height: ${props => props.maxh};
+  width: ${(props) => props.w};
+  height: ${(props) => props.h};
+  margin: ${(props) => props.m};
+  padding: ${(props) => props.p};
+  min-width: ${(props) => props.minw};
+  max-width: ${(props) => props.maxw};
+  min-height: ${(props) => props.minh};
+  max-height: ${(props) => props.maxh};
   font-size: ${styleVariables.fontSizeP};
   color: ${colorMap};
   font-family: ${styleVariables.mainFontFamily};
-  text-align: ${props => props.ta};
+  text-align: ${(props) => props.ta};
   text-decoration: ${textDecorationMap};
 `
 export const Small = styled.small`
-  width: ${props => props.w};
-  height: ${props => props.h};
-  margin: ${props => props.m};
-  padding: ${props => props.p};
-  min-width: ${props => props.minw};
-  max-width: ${props => props.maxw};
-  min-height: ${props => props.minh};
-  max-height: ${props => props.maxh};
+  width: ${(props) => props.w};
+  height: ${(props) => props.h};
+  margin: ${(props) => props.m};
+  padding: ${(props) => props.p};
+  min-width: ${(props) => props.minw};
+  max-width: ${(props) => props.maxw};
+  min-height: ${(props) => props.minh};
+  max-height: ${(props) => props.maxh};
   font-size: ${styleVariables.fontSizeSmall};
   color: ${colorMap};
   font-family: ${styleVariables.mainFontFamily};
-  text-align: ${props => props.ta};
+  text-align: ${(props) => props.ta};
   text-decoration: ${textDecorationMap};
 `
 
 export const Button = styled.button`
-  width: ${props => props.w};
-  height: ${props => props.h};
-  margin: ${props => props.m};
-  padding: ${props => props.p};
-  min-width: ${props => props.minw};
-  max-width: ${props => props.maxw};
-  min-height: ${props => props.minh};
-  max-height: ${props => props.maxh};
+  width: ${(props) => props.w};
+  height: ${(props) => props.h};
+  margin: ${(props) => props.m};
+  padding: ${(props) => props.p};
+  min-width: ${(props) => props.minw};
+  max-width: ${(props) => props.maxw};
+  min-height: ${(props) => props.minh};
+  max-height: ${(props) => props.maxh};
   color: white;
   background-color: ${buttonColorMap};
-  border-radius: ${props => props.br};
+  border-radius: ${(props) => props.br};
   font-size: ${styleVariables.fontSizeSmall};
   border: none;
   &:hover {
@@ -233,14 +236,14 @@ export const Button = styled.button`
 `
 // forms
 export const TextInput = styled.input`
-  width: ${props => props.w};
+  width: ${(props) => props.w};
   height: ${styleVariables.fontSizeP};
-  margin: ${props => props.m};
-  padding: ${props => props.p};
-  min-width: ${props => props.minw};
-  max-width: ${props => props.maxw};
-  min-height: ${props => props.minh};
-  max-height: ${props => props.maxh};
+  margin: ${(props) => props.m};
+  padding: ${(props) => props.p};
+  min-width: ${(props) => props.minw};
+  max-width: ${(props) => props.maxw};
+  min-height: ${(props) => props.minh};
+  max-height: ${(props) => props.maxh};
   font-size: ${styleVariables.fontSizeSmall};
 `
 // formik
@@ -252,37 +255,37 @@ export const EmoForm = styled(Form)`
   align-items: ${alignItemsMap};
   align-content: ${alignContentMap};
   flex-wrap: ${flexWrapMap};
-  width: ${props => props.w};
-  height: ${props => props.h};
-  margin: ${props => props.m};
-  padding: ${props => props.p};
-  min-width: ${props => props.minw};
-  max-width: ${props => props.maxw};
-  min-height: ${props => props.minh};
-  max-height: ${props => props.maxh};
+  width: ${(props) => props.w};
+  height: ${(props) => props.h};
+  margin: ${(props) => props.m};
+  padding: ${(props) => props.p};
+  min-width: ${(props) => props.minw};
+  max-width: ${(props) => props.maxw};
+  min-height: ${(props) => props.minh};
+  max-height: ${(props) => props.maxh};
   background-color: ${bgColorMap};
-  border-radius: ${props => props.br};
+  border-radius: ${(props) => props.br};
   box-shadow: ${boxShadowMap};
-  position: ${props => props.position};
-  top: ${props => props.top};
-  right: ${props => props.right};
-  bottom: ${props => props.bottom};
-  left: ${props => props.left};
+  position: ${(props) => props.position};
+  top: ${(props) => props.top};
+  right: ${(props) => props.right};
+  bottom: ${(props) => props.bottom};
+  left: ${(props) => props.left};
 `
 
 export const EmoField = styled(Field)`
-  width: ${props => props.w};
+  width: ${(props) => props.w};
   height: ${styleVariables.fontSizeP};
-  margin: ${props => props.m};
-  padding: ${props => props.p};
-  min-width: ${props => props.minw};
-  max-width: ${props => props.maxw};
-  min-height: ${props => props.minh};
-  max-height: ${props => props.maxh};
+  margin: ${(props) => props.m};
+  padding: ${(props) => props.p};
+  min-width: ${(props) => props.minw};
+  max-width: ${(props) => props.maxw};
+  min-height: ${(props) => props.minh};
+  max-height: ${(props) => props.maxh};
   font-size: ${styleVariables.fontSizeSmall};
-  border-radius: ${props => props.br};
-  border: ${props => props.b};
-  margin: ${props => props.m};
+  border-radius: ${(props) => props.br};
+  border: ${(props) => props.b};
+  margin: ${(props) => props.m};
 `
 
 //router

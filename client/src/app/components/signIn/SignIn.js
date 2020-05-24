@@ -2,27 +2,33 @@ import React from 'react'
 import { Formik, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { useSelector, useDispatch } from 'react-redux'
-import { setIsLoading, postSignIn } from '../../../redux/slices'
+import { postSignIn } from '../../../redux/thunks'
 import {
   EmoForm,
   EmoField,
   H1,
   Button,
+  FlexContainer,
 } from '../../../emotionalThings/EmoTools'
+import { Link } from 'react-router-dom'
+import { PError } from './emoSignIn'
+import { PulseLoader } from 'react-spinners'
 
 const SignIn = () => {
   const dispatch = useDispatch()
-  const { isLoading } = useSelector(state => state)
+  const { isLoading, postSignInError } = useSelector((state) => state)
   return (
     <>
-      <H1 ta='center'>Sign In</H1>
+      <H1 m='10px 0 0' ta='center'>
+        Sign In
+      </H1>
+      <PError>{postSignInError}</PError>
       <Formik
         initialValues={{
           username: '',
           password: '',
         }}
         onSubmit={(values, { resetForm }) => {
-          dispatch(setIsLoading(true))
           dispatch(postSignIn(values))
           resetForm()
         }}
@@ -31,7 +37,7 @@ const SignIn = () => {
           password: Yup.string().required(`can't be empty`),
         })}
       >
-        <EmoForm fdc aic m='20px'>
+        <EmoForm fdc='true' aic='true' m='20px'>
           <ErrorMessage name='username' component='p' />
           <EmoField
             m='20px'
@@ -46,9 +52,31 @@ const SignIn = () => {
             name='password'
             placeholder='enter password'
           />
-          <Button m='20px' type='submit' p='5px' br='5px' success disabled={isLoading}>
-            Submit
-          </Button>
+          <FlexContainer>
+            <Link to='/register'>
+              <Button
+                m='20px'
+                type='button'
+                p='5px'
+                br='5px'
+                info
+                disabled={isLoading}
+              >
+                Create an Account
+              </Button>
+            </Link>
+            <Button
+              m='20px'
+              type='submit'
+              p='5px'
+              br='5px'
+              success
+              disabled={isLoading}
+            >
+              Submit
+            </Button>
+          </FlexContainer>
+          <PulseLoader loading={isLoading} />
         </EmoForm>
       </Formik>
     </>

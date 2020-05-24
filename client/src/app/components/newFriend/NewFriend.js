@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Formik, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { useSelector, useDispatch } from 'react-redux'
-import { setIsLoading, postNewFriend, checkToken } from '../../../redux/slices'
+import { postNewFriend, checkToken } from '../../../redux/thunks'
 import {
   EmoField,
   H1,
@@ -18,7 +18,7 @@ import SignOut from '../signOut'
 
 const NewFriend = () => {
   const dispatch = useDispatch()
-  const { isLoading } = useSelector(state => state)
+  const { isLoading } = useSelector((state) => state)
   const { showHideModal, visible } = useModal()
   useEffect(() => {
     dispatch(checkToken())
@@ -26,7 +26,7 @@ const NewFriend = () => {
   return (
     <>
       <BackModal visible={visible.addNewFriend} close={showHideModal} />
-      <H1 m='20px' ta='center'>
+      <H1 m='20px' ta='center' mobm='70px 20px 20px'>
         Add A Friend
       </H1>
       <SignOut />
@@ -50,20 +50,14 @@ const NewFriend = () => {
           email: '',
         }}
         onSubmit={(values, { resetForm }) => {
-          dispatch(setIsLoading(true))
           dispatch(postNewFriend(values))
           showHideModal('addNewFriend', true)
           resetForm()
         }}
         validationSchema={Yup.object().shape({
           name: Yup.string().required(`can't be empty`),
-          age: Yup.number()
-            .min(0)
-            .max(120)
-            .required(`can't be empty`),
-          email: Yup.string()
-            .email()
-            .required(`can't be empty`),
+          age: Yup.number().min(0).max(120).required(`can't be empty`),
+          email: Yup.string().email().required(`can't be empty`),
         })}
       >
         <EmoForm m='100px 0 20px 0' w='100vw' h='100vh' fdc='true' aic='true'>

@@ -11,13 +11,13 @@ import {
   FlexContainer,
 } from '../../../../emotionalThings/EmoTools'
 import { EmoUFModalDiv } from './EmoUpdateFriend'
-import { setIsLoading, putUpdateFriend } from '../../../../redux/slices'
+import { putUpdateFriend } from '../../../../redux/thunks'
 
 const UpdateFriendModal = ({ visible, close, id }) => {
   const idNum = Number(id.update)
   const dispatch = useDispatch()
-  const { friends } = useSelector(state => state)
-  const friend = friends.find(friend => friend.id === idNum)
+  const { friends } = useSelector((state) => state)
+  const friend = friends.find((friend) => friend.id === idNum)
   return (
     visible &&
     ReactDOM.createPortal(
@@ -31,20 +31,14 @@ const UpdateFriendModal = ({ visible, close, id }) => {
               ...friend,
             }}
             onSubmit={(values, { resetForm }) => {
-              dispatch(setIsLoading(true))
               dispatch(putUpdateFriend(idNum, values)).then()
               resetForm()
               close('update', false)
             }}
             validationSchema={Yup.object().shape({
               name: Yup.string().required(`can't be empty`),
-              age: Yup.number()
-                .min(0)
-                .max(120)
-                .required(`can't be empty`),
-              email: Yup.string()
-                .email()
-                .required(`can't be empty`),
+              age: Yup.number().min(0).max(120).required(`can't be empty`),
+              email: Yup.string().email().required(`can't be empty`),
             })}
           >
             <EmoForm white='true' fdc='true' aic='true'>

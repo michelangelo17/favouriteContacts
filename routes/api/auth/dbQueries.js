@@ -1,5 +1,8 @@
 const db = require('../../../data/dbConfig')
 
+const findUser = async (username) =>
+  await db('users').where({ username }).first()
+
 const addUser = async (newUser) =>
   (
     await db('users').insert(
@@ -11,4 +14,4 @@ const addUser = async (newUser) =>
     )
   )[0]
 
-module.exports = { addUser }
+module.exports = { findUser, addUser }
