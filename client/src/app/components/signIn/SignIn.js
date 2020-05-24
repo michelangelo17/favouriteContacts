@@ -9,6 +9,7 @@ import {
   H1,
   Button,
   FlexContainer,
+  P,
 } from '../../../emotionalThings/EmoTools'
 import { Link } from 'react-router-dom'
 import { PError } from './emoSignIn'
@@ -79,6 +80,14 @@ const SignIn = () => {
           <PulseLoader loading={isLoading} />
         </EmoForm>
       </Formik>
+      <FlexContainer fdc aic m='20px'>
+        <P>Account with seed data?</P>
+        <P>Username and password both: blahblah</P>
+        <P>
+          Data persists, so please add examples to replace any deleted. Thank
+          you!
+        </P>
+      </FlexContainer>
     </>
   )
 }
