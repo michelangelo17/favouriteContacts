@@ -1,5 +1,5 @@
 exports.up = (knex) =>
-  knex.schema.createTable('contacts', (table) => {
+  knex.schema.createTable('friends', (table) => {
     table.increments('id')
     table.text('name').notNullable()
     table.integer('age').notNullable()
@@ -7,4 +7,4 @@ exports.up = (knex) =>
     table.integer('user_id').references('users.id').notNullable()
   })
 
-exports.down = (knex) => knex.schema.dropTableIfExists('contacts')
+exports.down = (knex) => knex.schema.dropTableIfExists('friends')

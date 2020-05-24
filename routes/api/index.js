@@ -1,7 +1,9 @@
 const router = require('express-promise-router')(),
-  authRouter = require('./auth')
+  authRouter = require('./auth'),
+  friendsRouter = require('./friends'),
+  { authenticate } = require('./middleware')
 
 module.exports = [
-  router.use('/', authRouter),
-  // router.use('/friends', friendsRouter),
+  authRouter,
+  router.use('/friends', authenticate, friendsRouter),
 ]

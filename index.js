@@ -3,8 +3,8 @@ const { PORT } = require('./env'),
   json = require('express').json(),
   morgan = require('morgan')('dev'),
   helmet = require('helmet')(),
-  cors = require('cors')()
-// apiRouter = require('./routes/api')
+  cors = require('cors')(),
+  apiRouter = require('./routes/api')
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`)
@@ -12,7 +12,7 @@ app.listen(PORT, () => {
 
 app.use(json, morgan, helmet, cors)
 
-// app.use('/api', apiRouter)
+app.use('/api', apiRouter)
 
 app.use((req, res, next) =>
   res
