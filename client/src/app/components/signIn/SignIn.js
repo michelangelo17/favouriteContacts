@@ -81,12 +81,12 @@ const SignIn = () => {
         </EmoForm>
       </Formik>
       <FlexContainer fdc aic m='20px'>
-        <P>Account with seed data?</P>
-        <P>Username and password both: blahblah</P>
-        <P>
+        <PError c='black'>Account with seed data?</PError>
+        <PError c='black'>Username and password both: blahblah</PError>
+        <PError c='black'>
           Data persists, so please add examples to replace any deleted. Thank
           you!
-        </P>
+        </PError>
       </FlexContainer>
     </>
   )
