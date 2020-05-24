@@ -5,7 +5,6 @@ const { PORT } = require('./env'),
   json = require('express').json(),
   morgan = require('morgan')('dev'),
   helmet = require('helmet')(),
-  cors = require('cors')(),
   apiRouter = require('./routes/api')
 
 app.listen(PORT, () => {
